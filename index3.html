@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25 Years of Love | Anniversary Tribute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --baby-pink: #130a0b;
+            --soft-pink: #ffc0cb;
+            --light-pink: #ffe4e9;
+            --deep-pink: #ff69b4;
+            --white: #ffffff;
+            --cream: #fff5f7;
+            --text-dark: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe4e9 0%, #ffc0cb 50%, #ffb6c1 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Romantic Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 182, 193, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatHeart 15s ease-in-out infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 105, 180, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--deep-pink);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #ff1493;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '♡';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover::after {
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home Page */
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .love-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6rem;
+            color: #ff1493;
+            text-shadow: 
+                0 0 20px rgba(255, 105, 180, 0.5),
+                0 0 40px rgba(255, 182, 193, 0.3);
+            margin-bottom: 1rem;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-pink);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .anniversary-badge {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.9));
+            padding: 3rem;
+            border-radius: 30px;
+            border: 3px solid var(--deep-pink);
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anniversary-badge::before {
+            content: '💕';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 5rem;
+            opacity: 0.2;
+        }
+
+        .anniversary-badge h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #ff1493;
+            margin-bottom: 1rem;
+        }
+
+        .anniversary-badge p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin: 0.5rem 0;
+        }
+
+        .heart-divider {
+            font-size: 2rem;
+            margin: 2rem 0;
+            color: var(--deep-pink);
+        }
+
+        /* Gallery Page */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: #ff1493;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+
+        .section-header p {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-pink);
+            font-size: 1.4rem;
+            font-style: italic;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            aspect-ratio: 1;
+            background: white;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+            border-color: var(--deep-pink);
+        }
+
+        .gallery-item::before {
+            content: '♡';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            z-index: 10;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover::before {
+            content: '❤️';
+            transform: scale(1.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(255, 20, 147, 0.95));
+            padding: 3rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            color: white;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-caption h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Wishes Page */
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2);
+            position: relative;
+            animation: floatUp 1s ease;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+            border-color: var(--deep-pink);
+        }
+
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wish-card::before {
+            content: '💗';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 3rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .wish-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ff1493;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .wish-card p {
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 8px 30px rgba(255, 20, 147, 0.5);
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .music-player:hover {
+            transform: scale(1.15);
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.7);
+        }
+
+        .music-player.playing {
+            animation: musicPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% {
+                box-shadow: 0 8px 30px rgba(255, 20, 147, 0.5);
+            }
+            50% {
+                box-shadow: 0 8px 50px rgba(255, 20, 147, 0.9);
+            }
+        }
+
+        .music-icon {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 192, 203, 0.98);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.4);
+            border: 4px solid white;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: #ff1493;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg) scale(1.2);
+            background: #ff69b4;
+        }
+
+        .lightbox-caption {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            color: #ff1493;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .love-title {
+                font-size: 3.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+
+            .gallery-grid,
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .anniversary-badge h3 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Special Message Box */
+        .love-message {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+            padding: 3rem;
+            border-radius: 30px;
+            margin: 3rem auto;
+            max-width: 800px;
+            box-shadow: 0 15px 50px rgba(255, 105, 180, 0.3);
+            border: 3px solid var(--deep-pink);
+            text-align: center;
+        }
+
+        .love-message h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #ff1493;
+            margin-bottom: 1.5rem;
+        }
+
+        .love-message p {
+            line-height: 2;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#" data-page="home">Home</a></li>
+            <li><a href="#" data-page="invitation">Invitation</a></li>
+            <li><a href="#" data-page="gallery">Gallery</a></li>
+            <li><a href="#" data-page="letter">A Letter from Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-icon">🎵</div>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="music/bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <div class="home-container">
+            <h1 class="love-title">Forever in Love</h1>
+            <p class="subtitle">Celebrating 25 Beautiful Years Together</p>
+            
+            <div class="anniversary-badge">
+                <h3>Silver Jubilee</h3>
+                <div class="heart-divider">♥ ♥ ♥</div>
+                <p><strong>November 21, 2000</strong></p>
+                <p style="font-size: 2rem; margin: 1rem 0;">to</p>
+                <p><strong>November 21, 2025</strong></p>
+                <div class="heart-divider">♥ ♥ ♥</div>
+                <p style="font-family: 'Great Vibes', cursive; font-size: 2rem; margin-top: 1rem; color: #ff1493;">
+                    Two hearts, one journey
+                </p>
+            </div>
+
+            <div class="love-message">
+                <h2>A Love Story</h2>
+                <p>Twenty-five years ago, two hearts promised to walk through life together. Through every season, every challenge, and every joy, your love has only grown stronger.</p>
+                <p>Your partnership is a testament to the power of commitment, friendship, and unwavering devotion. You've built a beautiful life filled with laughter, memories, and endless love.</p>
+                <p style="font-weight: 600; color: #ff1493; font-size: 1.4rem; margin-top: 2rem;">Here's to forever and always ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invitation Page -->
+    <div class="page" id="invitation">
+        <div class="section-header">
+            <h1>You're Invited</h1>
+            <p>Join us in celebrating 25 years of love</p>
+        </div>
+        
+        <div class="love-message" style="max-width: 900px;">
+            <div style="font-size: 4rem; margin-bottom: 2rem;">💑</div>
+            <h2 style="font-size: 4rem; margin-bottom: 2rem;">Silver Jubilee Celebration</h2>
+            
+            <div class="heart-divider">♥ ♥ ♥</div>
+            
+            <p style="font-size: 1.4rem; font-weight: 600; color: #ff1493; margin: 2rem 0;">
+                we invite you to celebrate
+            </p>
+            
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; margin: 2rem 0; border: 2px solid var(--deep-pink);">
+                <p style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-dark);">
+                    <strong>Friday, November 21, 2025</strong>
+                </p>
+                <p style="font-size: 1.4rem; font-weight: 600; color: #ff1493; margin: 2rem 0;">
+                    Silver Jubilee Celebration
+                </p>
+                <div style="margin: 2rem 0; font-size: 2rem; color: var(--deep-pink);">
+                    ♥ ♥ ♥
+                </div>
+                <p style="font-size: 1.5rem; line-height: 1.8; color: var(--text-dark);">
+                    <strong>At our home</strong><br>
+                    Sikandra<br>
+                </p>
+            </div>
+            
+            <div class="heart-divider">♥ ♥ ♥</div>
+            
+            <p style="font-size: 1.2rem; font-style: italic; margin-top: 2rem; color: var(--text-dark);">
+                Your presence would make this milestone even more special
+            </p>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div class="page" id="gallery">
+        <div class="section-header">
+            <h1>A Beautiful Journey</h1>
+            <p>A lifetime of beautiful moments</p>
+        </div>
+    
+        <div class="gallery-grid">
+    
+            <div class="gallery-item" data-caption="Love that still laughs like the first day">
+                <img src="images/img1.jpeg" alt="img1">
+                <div class="gallery-caption">
+                    <p>Love that still laughs like the first day</p>
+                </div>
+            </div>
+    
+            <div class="gallery-item" data-caption="They’ve always been our calm, our pride, and our forever favorite duo.">
+                <img src="images/img2.jpeg" alt="img2">
+                <div class="gallery-caption">
+                    <p>They’ve always been our calm, our pride, and our forever favorite duo.</p>
+                </div>
+            </div>
+    
+            <div class="gallery-item" data-caption="Every glance tells a chapter, every smile whispers a promise">
+                <img src="images/img3.jpeg" alt="img3">
+                <div class="gallery-caption">
+                    <p>Every glance tells a chapter, every smile whispers a promise</p>
+                </div>
+            </div>
+    
+            <div class="gallery-item" data-caption="Two hearts, still holding onto the same laughter">
+                <img src="images/img4.jpeg" alt="img4">
+                <div class="gallery-caption">
+                    <p>Two hearts, still holding onto the same laughter</p>
+                </div>
+            </div>
+    
+            <div class="gallery-item" data-caption="Wherever life takes us, this picture will always be home">
+                <img src="images/img5.jpeg" alt="Family Moments">
+                <div class="gallery-caption">
+                    <p>Wherever life takes us, this picture will always be home</p>
+                </div>
+            </div>
+    
+            <div class="gallery-item" data-caption="Love that never ages">
+                <img src="images/img6.jpeg" alt="Recent Moments">
+                <div class="gallery-caption">
+                    <p>Love that never ages</p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+    <!-- Letter from Children -->
+    <div class="page" id="letter">
+        <div class="section-header">
+            <h1>A Letter from Your Children</h1>
+            <p>With all our love and gratitude</p>
+        </div>
+        
+        <div class="love-message" style="max-width: 1000px; text-align: left;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">💝</div>
+                <h2>Dear Mummy & Papa,</h2>
+            </div>
+            
+            <p>As we celebrate your 25th wedding anniversary, we find ourselves reflecting on the incredible journey you've shared together, and more importantly, the profound impact your love and partnership has had on our lives.</p>
+            
+            <div class="heart-divider">♥ ♥ ♥</div>
+            
+            <p><strong style="color: #ff1493; font-size: 1.3rem;">Thank you for being our pillars of strength.</strong></p>
+            
+            <p>Through every challenge we faced, you were there. When we stumbled and fell, you didn't just pick us up, you taught us how to stand on our own. During our darkest moments, when we doubted ourselves, you believed in us with such conviction that we had no choice but to believe in ourselves too.</p>
+            
+            <p>You showed us that being supportive doesn't mean solving all our problems. It means standing beside us as we navigate life's complexities, offering wisdom when asked, comfort when needed, and celebrating our victories as if they were your own.</p>
+            
+            
+            <p><strong style="color: #ff1493; font-size: 1.3rem;">Thank you for teaching us what true partnership looks like.</strong></p>
+            
+            <p>We've watched you navigate life as a team. We've seen you compromise, communicate, and always choose love even when it wasn't easy. You've shown us that marriage isn't about perfection, it's about two imperfect people choosing each other, again and again.</p>
+            
+            <p>Papa, we've watched you support our dream more than yours.. and Maa, we've seen you stand beside all of us through every challenge and lifting us up during difficult times. You've taught us that respect, equality, and mutual admiration are the foundations of lasting love.</p>
+            
+            
+            <p><strong style="color: #ff1493; font-size: 1.3rem;">Thank you for all the efforts you put for us.</strong></p>
+            
+            <p>You created a sanctuary where we always felt safe, loved, and accepted. Every life lessons, every late-night conversation, every moment of laughter,these are the treasures we carry in our hearts. You made us understand that family isn't just about blood relations; it's about the bonds we nurture and the love we choose to give.</p>
+            
+            <p><strong style="color: #ff1493; font-size: 1.3rem;">Thank you for your sacrifices.</strong></p>
+            
+            <p>We know there were dreams you put on hold, comforts you went without, and countless sleepless nights you endured, all for us 🥹. You worked tirelessly to give us opportunities you never had. You prioritized our education, our growth, and our happiness above everything else.</p>
+            
+            <p>We promise to make every sacrifice you made truly count. We’ll give our best to make you proud, to keep you smiling, and to turn your dreams into our reality 🥹</p>
+            
+            
+            <p><strong style="color: #ff1493; font-size: 1.3rem;">Thank you for celebrating our highs and holding us through our lows.</strong></p>
+            
+            <p>You were our loudest cheerleaders during our achievements, no matter how big or small. You made us feel like champions for getting good grades, learning new skills, or simply trying our best. Your pride in us gave us confidence to reach higher and dream bigger.</p>
+            
+            <p>But more importantly, during our failures and disappointments, you never made us feel like we had let you down. Instead, you helped us see setbacks as stepping stones, failures as lessons, and struggles as opportunities for growth. You taught us resilience not through lectures, but through your own example of perseverance.</p>
+            
+            <p><strong style="color: #ff1493; font-size: 1.3rem;">Thank you for your unconditional love and support.</strong></p>
+            
+            <p>You've loved us at our best and at our worst. You've supported decisions you didn't always agree with, respected our choices even when they differed from your own, and given us the freedom to become ourselves while always ensuring we knew we had a soft place to land.</p>
+            
+            <p>Your love wasn't conditional on our success, our obedience, or our conformity. It was and is absolute, unwavering, and infinite. That security has been the greatest gift you could ever give us.</p>
+            
+            <div class="heart-divider">♥ ♥ ♥</div>
+            
+            <p style="font-size: 1.2rem; margin-top: 2rem;">As you celebrate 25 years of marriage, we want you to know that your story isn't just about the two of you, it's woven into the fabric of who we are. The values you've instilled, the lessons you've taught, and the love you've shown have shaped us in ways we're still discovering.</p>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Every step we take toward our dreams carries a part of your love, your lessons, and your faith in us.. And we couldn't be more grateful or more proud to be your children.</p>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <p style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff1493; margin-bottom: 1rem;">
+                    Here's to you, Mummy & Papa
+                </p>
+                <p style="font-size: 1.3rem; line-height: 2;">
+                    May the next upcoming years be filled with even more love, laughter, and beautiful memories.<br>
+                    May you continue to inspire us and everyone around you with your incredible partnership.<br>
+                    And may you always know how deeply loved and appreciated you are.
+                </p>
+                <div style="font-size: 3rem; margin: 2rem 0;">❤️</div>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: #ff1493;">
+                    With all our love, forever and always,
+                </p>
+                <p style="font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--deep-pink); margin-top: 1rem;">
+                    Suruchi, Aniket & Anurag ♥
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="closeLightbox">×</span>
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = e.target.getAttribute('data-page');
+                
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                document.getElementById(targetPage).classList.add('active');
+            });
+        });
+
+        // Generate Floating Hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Gallery Lightbox
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const caption = item.getAttribute('data-caption');
+                
+                document.getElementById('lightboxImg').src = img.src;
+                document.getElementById('lightboxCaption').textContent = caption;
+                document.getElementById('lightbox').classList.add('active');
+            });
+        });
+
+        document.getElementById('closeLightbox').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('active');
+        });
+
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        });
+
+        // Music Player
+        const musicPlayer = document.getElementById('musicPlayer');
+        const audio = document.getElementById('backgroundMusic');
+        let isPlaying = false;
+
+        musicPlayer.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                musicPlayer.classList.remove('playing');
+                musicPlayer.querySelector('.music-icon').textContent = '🎵';
+            } else {
+                audio.play();
+                musicPlayer.classList.add('playing');
+                musicPlayer.querySelector('.music-icon').textContent = '🎶';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Initialize
+        createFloatingHearts();
+
+        // Sparkle effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.92) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '9999';
+                sparkle.style.fontSize = '1.5rem';
+                sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkle {
+                0% {
+                    opacity: 1;
+                    transform: scale(1) rotate(0deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(2) rotate(180deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
